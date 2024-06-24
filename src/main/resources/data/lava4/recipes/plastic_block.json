@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "lava4:plastic"
+    }
+  },
+  "result": {
+    "item": "lava4:plastic_block"
+  }
+}

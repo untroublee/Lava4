@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "group": "plastic",
+  "ingredient": {
+    "item": "lava4:raw_plastic"
+  },
+  "result": {
+    "item": "lava4:plastic"
+  }
+}
