@@ -1,6 +1,5 @@
 package net.lua.lava4.block.custom;
 
-import net.lua.lava4.Lava4;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,11 +17,18 @@ public class DrillBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        pLevel.destroyBlock(pPos,true,pPlayer);
-        for (int i = 0; i <= pPos.getY() + 64; i++) {
-            Lava4.LOGGER.info(String.valueOf(i));
-        }
+        drillAtOffset(0,0,pPos,pLevel,pPlayer);
+        drillAtOffset(1,0,pPos,pLevel,pPlayer);
+        drillAtOffset(-1,0,pPos,pLevel,pPlayer);
+        drillAtOffset(0,1,pPos,pLevel,pPlayer);
+        drillAtOffset(0,-1,pPos,pLevel,pPlayer);
 
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    }
+
+    private static void drillAtOffset(int x, int z, BlockPos pPos, Level pLevel, Player pPlayer) {
+        for (int i = pPos.getY() - 1; i != -64; i--) {
+            pLevel.destroyBlock(new BlockPos(pPos.getX() + x,i,pPos.getZ() + z),true,pPlayer);
+        }
     }
 }
